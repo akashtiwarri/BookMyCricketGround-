@@ -1,14 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors');
+// const cors = require('cors');
 
 dotenv.config();
 
 const app = express();
 
 // Middleware
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 // Database Connection
@@ -19,8 +19,8 @@ mongoose
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/grounds', require('./routes/groundRoutes'));
-app.use('/api/bookings', require('./routes/bookingRoutes'));
+// app.use('/api/grounds', require('./src/routes/groundRoutes'));
+// app.use('/api/bookings', require('./src/routes/bookingRoutes'));
 
 // Start Server
 const PORT = process.env.PORT || 5000;
