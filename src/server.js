@@ -6,6 +6,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger.json');
 
 // Middleware
 // app.use(cors());
@@ -21,6 +23,7 @@ mongoose
 app.use('/api/auth', require('./routes/authRoutes'));
 // app.use('/api/grounds', require('./src/routes/groundRoutes'));
 // app.use('/api/bookings', require('./src/routes/bookingRoutes'));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Start Server
 const PORT = process.env.PORT || 5000;
